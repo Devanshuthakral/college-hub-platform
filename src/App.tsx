@@ -10,6 +10,10 @@ import AuthGuard from "@/components/AuthGuard";
 import LoginPage from "@/pages/LoginPage";
 import Dashboard from "@/pages/Dashboard";
 import AnnouncementsPage from "@/pages/AnnouncementsPage";
+import EventsPage from "@/pages/EventsPage";
+import PollsPage from "@/pages/PollsPage";
+import FeedbackPage from "@/pages/FeedbackPage";
+import NotificationsPage from "@/pages/NotificationsPage";
 import NotFound from "@/pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -41,7 +45,29 @@ const App = () => (
                 </AuthGuard>
               } />
               
-              {/* More routes will be added here */}
+              <Route path="events" element={
+                <AuthGuard>
+                  <EventsPage />
+                </AuthGuard>
+              } />
+              
+              <Route path="polls" element={
+                <AuthGuard>
+                  <PollsPage />
+                </AuthGuard>
+              } />
+              
+              <Route path="feedback" element={
+                <AuthGuard>
+                  <FeedbackPage />
+                </AuthGuard>
+              } />
+              
+              <Route path="notifications" element={
+                <AuthGuard>
+                  <NotificationsPage />
+                </AuthGuard>
+              } />
               
               {/* 404 Route */}
               <Route path="*" element={<NotFound />} />
